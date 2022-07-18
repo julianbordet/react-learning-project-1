@@ -1,0 +1,29 @@
+.cart-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 20%;
+    background-color: #401302;
+    padding-top:8px;
+    padding-bottom:8px;
+    color:white;
+    border-radius: 20px;
+    max-width: 230px;
+}
+
+.cart-text{
+
+    color:white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cart-items-counter{
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #a1331a;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius:10px;
+}
