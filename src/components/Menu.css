@@ -1,0 +1,11 @@
+.menu-container{
+    background-color: #fefefe;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin-top: 3rem;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius: 15px;
+}

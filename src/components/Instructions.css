@@ -7,6 +7,25 @@ p{
     color:white;
 }
 
-.instructions-background{
+.instructions-container{
+    margin-top: 150px;
     background-color: #313131;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width:50%;
+    max-width: 1000px;;
+    border-radius: 15px;
+    border: solid 1px white;
+}
+
+.instructions-container h2 {
+    margin-top: 15px;
+}
+
+.instructions-container p {
+    margin-left: 20px;
+    margin-right: 20px;
 }
