@@ -3,12 +3,16 @@ import './Cart.css'
 
 const Cart = () =>{
 
+    const cartHandler = () =>{
+        
+    }
+
     return(
-        <div className='cart-container'>
+        <a onClick={cartHandler} className='cart-container'>
             <i class="fa-solid fa-cart-shopping"></i>
-            <a className='cart-text' href=''>Your Cart</a>
+            <span className='cart-text' href=''>Your Cart</span>
             <span className='cart-items-counter'>0</span>
-        </div>
+        </a>
     )
 
 }
