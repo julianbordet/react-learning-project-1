@@ -8,15 +8,15 @@ p{
 }
 
 .instructions-container{
-    margin-top: 150px;
+    margin-top: 75px;
     background-color: #313131;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-left: auto;
     margin-right: auto;
-    width:50%;
-    max-width: 1000px;;
+    width:40%;
+    max-width: 800px;;
     border-radius: 15px;
     border: solid 1px white;
 }
