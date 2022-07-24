@@ -3,12 +3,12 @@ import Cart from "./Cart";
 import './Header.css'
 
 
-const Header = () =>{
+const Header = (props) =>{
 
     return(
         <div className="header">
             <span className='title'>ReactMeals</span>
-            <Cart className="cart"></Cart>
+            <Cart openModal={props.openModal} className="cart"></Cart>
         </div>
     )
 
