@@ -4,7 +4,8 @@ import Header from './components/Header';
 import Instructions from './components/Instructions';
 import Menu from './components/Menu';
 import CartModal from './components/CartModal';
-import Cart from './components/Cart';
+import Cart from './components/CartButton';
+import CartContext from './components/store/cart-context';
 
 function App() {
 
@@ -20,15 +21,21 @@ function App() {
     console.log('llegue a ejecutar closeModalHanlder en app.js');
   }
 
+  const addItemToCartModal = (item) =>{
+
+  }
+
   return (
     <React.Fragment>
-      <Header openModal={openModalHandler}/>
-      <div className='background'>
-        <Instructions/>
-        <Menu/>
-        {modalOpen && <CartModal title='My Cart Modal' message='This is the cart modal' closeModal={closeModalHandler}></CartModal>}
-      </div>
-      
+
+      <CartContext.Provider value={[]}>
+        <Header openModal={openModalHandler}/>
+        <div className='background'>
+          <Instructions/>
+          <Menu/>
+          {modalOpen && <CartModal title='My Cart Modal' message='This is the cart modal' closeModal={closeModalHandler}></CartModal>}
+        </div>
+      </CartContext.Provider>
       
     </React.Fragment>
 

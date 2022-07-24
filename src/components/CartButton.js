@@ -1,7 +1,7 @@
 import React from "react";
-import './Cart.css'
+import './CartButton.css'
 
-const Cart = (props) =>{
+const CartButton = (props) =>{
 
     return(
         <a onClick={props.openModal} className='cart-container'>
@@ -13,4 +13,4 @@ const Cart = (props) =>{
 
 }
 
-export default Cart;
+export default CartButton;

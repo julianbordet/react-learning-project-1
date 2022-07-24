@@ -1,5 +1,5 @@
 import React from "react";
-import Cart from "./Cart";
+import CartButton from "./CartButton";
 import './Header.css'
 
 
@@ -8,7 +8,7 @@ const Header = (props) =>{
     return(
         <div className="header">
             <span className='title'>ReactMeals</span>
-            <Cart openModal={props.openModal} className="cart"></Cart>
+            <CartButton openModal={props.openModal} className="cart"></CartButton>
         </div>
     )
 

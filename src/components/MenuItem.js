@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useContext} from "react";
 import {useState} from "react";
 import './MenuItem.css';
+import CartContext from "./store/cart-context";
 
 const MenuItem = (props) =>{
 
 const [enteredQuantity, setEnteredQuantity] = useState(0);
+
+const ctx = useContext(CartContext);
 
     const submitHandler = (event) =>{
         event.preventDefault();
@@ -14,20 +17,13 @@ const [enteredQuantity, setEnteredQuantity] = useState(0);
         const menuItemToBeAdded = {
             key: cartkey,
             name: props.name,
-            description: props.description,
             price: props.price,
-            /*need state here*/
             quantity: enteredQuantity
-            
-
         }
-
-        /*
-        console.log('entered quantity is');
-        console.log(menuItemToBeAdded.quantity);
-        */
-
+     
         /*Submit menuItemToBeAdded to Cart*/
+        ctx.push(menuItemToBeAdded);
+
     }
 
     const quantityHandler = (event) =>{

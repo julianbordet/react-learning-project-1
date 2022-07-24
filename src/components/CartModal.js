@@ -7,7 +7,7 @@ const CartModal = (props) =>{
     <div>
         <div className='backdrop' onClick={props.closeModal}></div>
         <div className='modal'>    
-            <header>
+            <header className='modal-header'>
                 <h1>wasabiiii</h1>
                 <h2>{props.title}</h2>
             </header>
