@@ -28,16 +28,16 @@ const CartReducer = (state, action) =>{
             console.log('Action es')
             console.log(action)
 
-            /*
+            
             let updatedItemsOnCart = state.itemsOnCart;
             updatedItemsOnCart.push(item);
-            */
+            
 
             
 
             return{
                 ...state,
-             
+               itemsOnCart: updatedItemsOnCart 
             }
             
         /*
