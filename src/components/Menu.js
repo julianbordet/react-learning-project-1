@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import MenuItem from "./MenuItem";
 import './Menu.css'
+import { CartContext } from "./store/cart-context";
 
 const Menu = () =>{
+
+
+
+
 
     const DUMMY_ITEMS = [
         {

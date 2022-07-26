@@ -1,13 +1,14 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import {useState} from "react";
 import './MenuItem.css';
-import CartContext from "./store/cart-context";
+import { CartContext } from "./store/cart-context";
+import { types } from "./store/cartReducer";
 
 const MenuItem = (props) =>{
 
 const [enteredQuantity, setEnteredQuantity] = useState(0);
+const [state, dispatch] = useContext(CartContext)
 
-const ctx = useContext(CartContext);
 
     const submitHandler = (event) =>{
         event.preventDefault();
@@ -15,16 +16,24 @@ const ctx = useContext(CartContext);
         const cartkey = Math.random();
 
         const menuItemToBeAdded = {
+            type: types.addItemToCart,
             key: cartkey,
             name: props.name,
             price: props.price,
             quantity: enteredQuantity
         }
      
-        /*Submit menuItemToBeAdded to Cart*/
-        ctx.push(menuItemToBeAdded);
+        
+        console.log('Desde menuItem: menuItemToBeADDED: ');
+        console.log(menuItemToBeAdded);
+        
+       
+        dispatch(menuItemToBeAdded);
+        
 
     }
+
+    
 
     const quantityHandler = (event) =>{
         setEnteredQuantity(event.target.value);

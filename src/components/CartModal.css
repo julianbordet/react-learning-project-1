@@ -16,3 +16,7 @@
     z-index: 100;
     overflow: hidden;
 }
+
+.modal-item{
+    background-color: white;
+}
