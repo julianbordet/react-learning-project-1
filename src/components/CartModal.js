@@ -34,8 +34,12 @@ const CartModal = (props) => {
             <div className='modal'>
                 
                 {state.itemsOnCart.map((menuItem) => (
-                    <div>
-                        <h1 className='modal-item'>{menuItem.name + " " + "key:" + menuItem.key} </h1>
+                    <div className='modal-item'>
+                        <span className='modal-item-name'>{menuItem.name}</span>
+                        <div className='modal-item-second-row'>
+                            <span>${menuItem.price}</span>
+                            <span>x {menuItem.quantity}</span>
+                        </div>
                     </div>
                 ))}
 

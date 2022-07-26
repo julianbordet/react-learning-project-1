@@ -13,20 +13,18 @@ const [state, dispatch] = useContext(CartContext)
     const submitHandler = (event) =>{
         event.preventDefault();
 
-        const cartkey = Math.random();
+        
 
         const menuItemToBeAdded = {
             type: types.addItemToCart,
-            key: cartkey,
+            key: props.key,
             name: props.name,
             price: props.price,
             quantity: enteredQuantity
         }
      
         
-        console.log('Desde menuItem: menuItemToBeADDED: ');
-        console.log(menuItemToBeAdded);
-        
+       
        
         dispatch(menuItemToBeAdded);
         

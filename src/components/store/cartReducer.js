@@ -18,23 +18,10 @@ const CartReducer = (state, action) =>{
                 price: action.price,
                 quantity: action.quantity
             }
-
-            console.log('En cartReducer, item es:')
-            console.log(item);
-
-            console.log('State es:')
-            console.log(state);
-
-            console.log('Action es')
-            console.log(action)
-
-            
+  
             let updatedItemsOnCart = state.itemsOnCart;
             updatedItemsOnCart.push(item);
             
-
-            
-
             return{
                 ...state,
                itemsOnCart: updatedItemsOnCart 
@@ -48,7 +35,11 @@ const CartReducer = (state, action) =>{
         case types.removeItemFromCart:
         */
 
-        
+        default:
+            return{
+                state
+            } 
+
     }
 
 }
