@@ -18,7 +18,7 @@ const CartModal = (props) => {
         })
 
         setTotalPrice(innerTotalPrice);
-    }, [state.itemsOnCart]);
+    }, [state]);
 
     const increaseItemQuantityHandler = (menuItem) => {
 
