@@ -12,15 +12,11 @@ function App() {
 
   const openModalHandler = (props) =>{
     setModalOpen(true);
-    console.log('llegue a ejecutar openModalHanlder en app.js');
   }
 
   const closeModalHandler = (props) =>{
     setModalOpen(false);
-    console.log('llegue a ejecutar closeModalHanlder en app.js');
   }
-
-
 
   return (
     <React.Fragment>

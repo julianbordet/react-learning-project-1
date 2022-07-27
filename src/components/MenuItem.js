@@ -49,10 +49,10 @@ const [state, dispatch] = useContext(CartContext)
                     <form className='item-form' onSubmit={submitHandler}>
                         <div className='first-row'>
                             <label htmlFor='amount' id='amount-label'>Amount</label>
-                            <input type='number' name='amount' id='amount' onChange={quantityHandler}></input>
+                            <input className='input-amount' type='number' name='amount' id='amount' onChange={quantityHandler}></input>
                         </div>
                         <div className='second-row'>
-                            <input type='submit' value='+ Add'></input>
+                            <input className='add-input' type='submit' value='+ Add'></input>
                         </div>
                     </form>
                 </div>

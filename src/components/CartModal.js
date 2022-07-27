@@ -43,11 +43,11 @@ const CartModal = (props) => {
                             <span className='modal-item-name'>{menuItem.name}</span>
                             <div className='modal-item-second-row'>
                                 <span className='modal-item-price'>${menuItem.price}</span>
-                                <span>x {menuItem.quantity}</span>
+                                <span className='modal-quantity'>x {menuItem.quantity}</span>
                             </div>
                         </div>
                         <div className='modal-column-two'>
-                            <button className='modal-quantity-button plus-button'>-</button>
+                            <button className='modal-quantity-button minus-button'>-</button>
                             <button className='modal-quantity-button plus-button'>+</button>
                         </div>
                     </div>
@@ -59,8 +59,8 @@ const CartModal = (props) => {
                 </div>
 
                 <div className='close-order-buttons'>
-                    <button>Close</button>
-                    <button onClick={executeOrder}>Order</button>
+                    <button className='modal-close-button'>Close</button>
+                    <button className='modal-order-button' onClick={executeOrder}>Order</button>
                 </div>
 
             </div>
