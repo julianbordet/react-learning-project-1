@@ -6,9 +6,9 @@ const types = {
     removeItemFromCart: 'removeItemFromCart'
 }
 
-const CartReducer = (state, action) =>{
+const CartReducer = (state, action) => {
 
-    switch(action.type){
+    switch (action.type) {
 
         case types.addItemToCart:
 
@@ -21,110 +21,98 @@ const CartReducer = (state, action) =>{
 
             let updatedItemsOnCart = state.itemsOnCart;
 
-            /*if (item.key already exists in updateItemsOnCart
-                    updatedItemsOnCart.quantity + item.quantity
-                    else
-                    push*/ 
+            let sameKey = false;
+            let index = -1;
 
-            /*updatedItemsOnCart.map((theItem) =>{
-                if(theItem.key === item.key){
-                    return true;
-                }}*/
-
-                let sameKey = false;
-                let index = -1;
-
-                for(let i = 0; i < updatedItemsOnCart.length; i++){
-                    if(updatedItemsOnCart[i].key === item.key){
-                        sameKey = true;
-                        index = i;
-                    }
+            for (let i = 0; i < updatedItemsOnCart.length; i++) {
+                if (updatedItemsOnCart[i].key === item.key) {
+                    sameKey = true;
+                    index = i;
                 }
-
-                if(sameKey === true){
-                    let number1 = Number(updatedItemsOnCart[index].quantity);
-                    let number2 = Number(item.quantity);
-                    let sum = number1+number2;
-                    updatedItemsOnCart[index].quantity = sum;
-                } else {
-                    updatedItemsOnCart.push(item);
-                }
-
-                sameKey = false;
-                index = -1;
-    
-            return{
-                ...state,
-               itemsOnCart: updatedItemsOnCart 
             }
-            
-        
+
+            if (sameKey === true) {
+                let number1 = Number(updatedItemsOnCart[index].quantity);
+                let number2 = Number(item.quantity);
+                let sum = number1 + number2;
+                updatedItemsOnCart[index].quantity = sum;
+            } else {
+                updatedItemsOnCart.push(item);
+            }
+
+            sameKey = false;
+            index = -1;
+
+            return {
+                ...state,
+                itemsOnCart: updatedItemsOnCart
+            }
+
+
         case types.increaseItemQuantity:
 
             let updatedItemsOnCart2 = state.itemsOnCart;
 
-            updatedItemsOnCart2.map( (itemOnCart) =>{
-                if(itemOnCart.key === action.key){
+            updatedItemsOnCart2.forEach((itemOnCart) => {
+                if (itemOnCart.key === action.key) {
 
                     let existingQuantity = Number(itemOnCart.quantity);
-                    let updatedQuantity = existingQuantity+1;
+                    let updatedQuantity = existingQuantity + 1;
 
                     itemOnCart.quantity = updatedQuantity;
                 }
-            } )
+            })
 
-            return{
+            return {
                 ...state,
-                itemsOnCart: updatedItemsOnCart2 
+                itemsOnCart: updatedItemsOnCart2
             }
 
-        
-        
+
         case types.decreaseItemQuantity:
 
-        let updatedItemsOnCart3 = state.itemsOnCart;
+            let updatedItemsOnCart3 = state.itemsOnCart;
 
-        updatedItemsOnCart3.map( (itemOnCart) =>{
-            if(itemOnCart.key === action.key){
-                let existingQuantity = Number(itemOnCart.quantity);
-                let updatedQuantity = existingQuantity-1;
+            updatedItemsOnCart3.forEach((itemOnCart) => {
+                if (itemOnCart.key === action.key) {
+                    let existingQuantity = Number(itemOnCart.quantity);
+                    let updatedQuantity = existingQuantity - 1;
 
-                itemOnCart.quantity = updatedQuantity;
+                    itemOnCart.quantity = updatedQuantity;
+                }
+            })
+
+            return {
+                ...state,
+                itemsOnCart: updatedItemsOnCart3
             }
-        } )
 
-        return{
-            ...state,
-            itemsOnCart: updatedItemsOnCart3
-        }
 
-    
         case types.removeItemFromCart:
-         
-        let updatedItemsOnCart4 = state.itemsOnCart;
 
-        updatedItemsOnCart4.map( (itemOnCart) =>{
-            if(itemOnCart.key === action.key){
-                
-                let index = updatedItemsOnCart4.indexOf(itemOnCart);
-                updatedItemsOnCart4.splice(index, 1);
+            let updatedItemsOnCart4 = state.itemsOnCart;
+
+            updatedItemsOnCart4.forEach((itemOnCart) => {
+                if (itemOnCart.key === action.key) {
+
+                    let index = updatedItemsOnCart4.indexOf(itemOnCart);
+                    updatedItemsOnCart4.splice(index, 1);
+                }
+            })
+
+            return {
+                ...state,
+                itemsOnCart: updatedItemsOnCart4
             }
-        } )
-
-        return{
-            ...state,
-            itemsOnCart: updatedItemsOnCart4
-        }
 
 
         default:
-            return{
+            return {
                 state
-            } 
+            }
 
     }
-
 }
 
-export {types}
+export { types }
 export default CartReducer;

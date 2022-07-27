@@ -3,9 +3,9 @@ import CartButton from "./CartButton";
 import './Header.css'
 
 
-const Header = (props) =>{
+const Header = (props) => {
 
-    return(
+    return (
         <div className="header">
             <span className='title'>ReactMeals</span>
             <CartButton openModal={props.openModal} className="cart"></CartButton>

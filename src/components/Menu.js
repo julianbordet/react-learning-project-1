@@ -1,13 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import MenuItem from "./MenuItem";
 import './Menu.css'
-import { CartContext } from "./store/cart-context";
 
-const Menu = () =>{
-
-
-
-
+const Menu = () => {
 
     const DUMMY_ITEMS = [
         {
@@ -36,12 +31,12 @@ const Menu = () =>{
         }
     ];
 
-    return(
+    return (
         <div className='menu-container'>
-        {DUMMY_ITEMS.map((item) => (
+            {DUMMY_ITEMS.map((item) => (
                 <MenuItem name={item.name} description={item.description} price={item.price} thekey={item.key} ></MenuItem>
-            ))} 
-        
+            ))}
+
         </div>
     )
 

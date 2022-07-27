@@ -1,15 +1,14 @@
-import React, {useState, useContext, useEffect} from "react";
+import React, { useState, useContext, useEffect } from "react";
 import './CartButton.css'
 import { CartContext } from "./store/cart-context";
 
-const CartButton = (props) =>{
+const CartButton = (props) => {
 
     const [state, dispatch] = useContext(CartContext);
     const [amount, setAmount] = useState(0);
 
-    
 
-    useEffect( () => {
+    useEffect(() => {
 
         let cartLength = 0;
 
@@ -19,7 +18,7 @@ const CartButton = (props) =>{
 
     }, [state]);
 
-    return(
+    return (
         <a onClick={props.openModal} className='cart-container'>
             <i class="fa-solid fa-cart-shopping"></i>
             <span className='cart-text' href=''>Your Cart</span>

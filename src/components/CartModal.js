@@ -13,7 +13,7 @@ const CartModal = (props) => {
 
         let innerTotalPrice = 0;
 
-        state.itemsOnCart.map((menuitem) => {
+        state.itemsOnCart.forEach((menuitem) => {
             innerTotalPrice += menuitem.price * menuitem.quantity;
         })
 
@@ -22,9 +22,6 @@ const CartModal = (props) => {
 
     const increaseItemQuantityHandler = (menuItem) => {
 
-        /*
-        console.log(menuItem);
-        */
         let message = {
             type: types.increaseItemQuantity,
             key: menuItem.key,
@@ -39,7 +36,7 @@ const CartModal = (props) => {
 
         let message;
 
-        if(menuItem.quantity > 1){
+        if (menuItem.quantity > 1) {
             message = {
                 type: types.decreaseItemQuantity,
                 key: menuItem.key,
@@ -55,10 +52,9 @@ const CartModal = (props) => {
             }
         }
 
-       dispatch(message);
+        dispatch(message);
 
     }
-
 
     const executeOrder = () => {
         console.log('Ordering...');
@@ -80,7 +76,7 @@ const CartModal = (props) => {
                             </div>
                         </div>
                         <div className='modal-column-two'>
-                            <button onClick={ () => { decreaseItemQuantityHandler(menuItem) }} className='modal-quantity-button minus-button'>-</button>
+                            <button onClick={() => { decreaseItemQuantityHandler(menuItem) }} className='modal-quantity-button minus-button'>-</button>
                             <button onClick={() => { increaseItemQuantityHandler(menuItem) }} className='modal-quantity-button plus-button'>+</button>
                         </div>
                     </div>

@@ -10,11 +10,11 @@ function App() {
 
   const [modalOpen, setModalOpen] = useState(false);
 
-  const openModalHandler = (props) =>{
+  const openModalHandler = (props) => {
     setModalOpen(true);
   }
 
-  const closeModalHandler = (props) =>{
+  const closeModalHandler = (props) => {
     setModalOpen(false);
   }
 
@@ -22,14 +22,14 @@ function App() {
     <React.Fragment>
 
       <CartContextProvider>
-        <Header openModal={openModalHandler}/>
+        <Header openModal={openModalHandler} />
         <div className='background'>
-          <Instructions/>
-          <Menu/>
+          <Instructions />
+          <Menu />
           {modalOpen && <CartModal title='My Cart Modal' message='This is the cart modal' closeModal={closeModalHandler}></CartModal>}
         </div>
       </CartContextProvider>
-      
+
     </React.Fragment>
 
   );

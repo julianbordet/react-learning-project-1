@@ -1,7 +1,7 @@
 import React from "react";
 
-const CartItem = () =>{
-    
+const CartItem = () => {
+
 }
 
 export default CartItem;

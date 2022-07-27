@@ -1,19 +1,17 @@
 import React, { useContext } from "react";
-import {useState} from "react";
+import { useState } from "react";
 import './MenuItem.css';
 import { CartContext } from "./store/cart-context";
 import { types } from "./store/cartReducer";
 
-const MenuItem = (props) =>{
+const MenuItem = (props) => {
 
-const [enteredQuantity, setEnteredQuantity] = useState(0);
-const [state, dispatch] = useContext(CartContext)
+    const [enteredQuantity, setEnteredQuantity] = useState(0);
+    const [state, dispatch] = useContext(CartContext);
 
 
-    const submitHandler = (event) =>{
+    const submitHandler = (event) => {
         event.preventDefault();
-
-        
 
         const menuItemToBeAdded = {
             type: types.addItemToCart,
@@ -22,22 +20,15 @@ const [state, dispatch] = useContext(CartContext)
             price: props.price,
             quantity: enteredQuantity
         }
-     
-        
-       
-       
-        dispatch(menuItemToBeAdded);
-        
 
+        dispatch(menuItemToBeAdded);
     }
 
-    
-
-    const quantityHandler = (event) =>{
+    const quantityHandler = (event) => {
         setEnteredQuantity(event.target.value);
     }
 
-    return(
+    return (
         <React.Fragment>
             <div className='menu-item-container'>
                 <div className='first-column'>
@@ -60,7 +51,6 @@ const [state, dispatch] = useContext(CartContext)
             <hr></hr>
         </React.Fragment>
     )
-
 }
 
 export default MenuItem;
