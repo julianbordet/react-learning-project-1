@@ -88,7 +88,7 @@ const CartModal = (props) => {
 
                 <div className='amount-row'>
                     <span className='total-amount-label'>Total Amount:</span>
-                    <span className='total-amount-price'>${totalPrice}</span>
+                    <span className='total-amount-price'>${totalPrice.toFixed(2)}</span>
                 </div>
 
                 <div className='close-order-buttons'>
