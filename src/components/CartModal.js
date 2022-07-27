@@ -1,43 +1,53 @@
-import React, { useContext } from "react"
+import React, { useContext, useState, useEffect } from "react"
 import './CartModal.css'
 import { CartContext } from "./store/cart-context"
-
-
-/*
-<header className='modal-header'>
-<h1>wasabiiii</h1>
-<h2>{props.title}</h2>
-</header>
-<div>
-<p>{props.message}</p>
-</div>
-<footer>
-<button onClick={props.closeModal}>Okay</button>
-</footer>
-*/
-
-
-
-
-
 
 
 const CartModal = (props) => {
 
     const [state, dispatch] = useContext(CartContext);
+    const [totalPrice, setTotalPrice] = useState(0);
+
+    useEffect( () =>{
+
+        let innerTotalPrice = 0;
+
+        state.itemsOnCart.map( (menuitem) => {
+            innerTotalPrice += menuitem.price * menuitem.quantity;
+        })
+
+        setTotalPrice(innerTotalPrice);
+    }, [state.itemsOnCart] );
+
+   
+    
+    
+    /*
+    const calculateTotalPrice = () =>{
+
+        let innerTotalPrice = 0;
+
+        state.itemsOnCart.map( (menuitem) => {
+            innerTotalPrice += menuitem.price * menuitem.quantity;
+        })
+
+        setTotalPrice(innerTotalPrice);
+    }
+    */
+    
+
 
     const executeOrder = () =>{
         console.log('Ordering...');
     }
-
-   
-
+ 
     return (
         <div>
             <div className='backdrop' onClick={props.closeModal}></div>
             <div className='modal'>
-                
+
                 {state.itemsOnCart.map((menuItem) => (
+
                     <div className='modal-item'>
                         <div className='modal-column-one'>
                             <span className='modal-item-name'>{menuItem.name}</span>
@@ -55,7 +65,7 @@ const CartModal = (props) => {
 
                 <div className='amount-row'>
                     <span className='total-amount-label'>Total Amount:</span>
-                    <span className='total-amount-price'>$xxx</span>
+                    <span className='total-amount-price'>${totalPrice}</span>
                 </div>
 
                 <div className='close-order-buttons'>
