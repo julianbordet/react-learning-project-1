@@ -39,7 +39,7 @@ const Menu = () =>{
     return(
         <div className='menu-container'>
         {DUMMY_ITEMS.map((item) => (
-                <MenuItem name={item.name} description={item.description} price={item.price} ></MenuItem>
+                <MenuItem name={item.name} description={item.description} price={item.price} thekey={item.key} ></MenuItem>
             ))} 
         
         </div>

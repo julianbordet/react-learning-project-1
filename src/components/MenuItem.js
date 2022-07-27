@@ -17,7 +17,7 @@ const [state, dispatch] = useContext(CartContext)
 
         const menuItemToBeAdded = {
             type: types.addItemToCart,
-            key: props.key,
+            key: props.thekey,
             name: props.name,
             price: props.price,
             quantity: enteredQuantity
