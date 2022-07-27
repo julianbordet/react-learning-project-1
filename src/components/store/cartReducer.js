@@ -31,8 +31,6 @@ const CartReducer = (state, action) =>{
                     return true;
                 }}*/
 
-                console.log(item);
-
                 let sameKey = false;
                 let index = -1;
 
@@ -60,13 +58,64 @@ const CartReducer = (state, action) =>{
                itemsOnCart: updatedItemsOnCart 
             }
             
-        /*
+        
         case types.increaseItemQuantity:
+
+            let updatedItemsOnCart2 = state.itemsOnCart;
+
+            updatedItemsOnCart2.map( (itemOnCart) =>{
+                if(itemOnCart.key === action.key){
+
+                    let existingQuantity = Number(itemOnCart.quantity);
+                    let updatedQuantity = existingQuantity+1;
+
+                    itemOnCart.quantity = updatedQuantity;
+                }
+            } )
+
+            return{
+                ...state,
+                itemsOnCart: updatedItemsOnCart2 
+            }
+
+        
         
         case types.decreaseItemQuantity:
 
+        let updatedItemsOnCart3 = state.itemsOnCart;
+
+        updatedItemsOnCart3.map( (itemOnCart) =>{
+            if(itemOnCart.key === action.key){
+                let existingQuantity = Number(itemOnCart.quantity);
+                let updatedQuantity = existingQuantity-1;
+
+                itemOnCart.quantity = updatedQuantity;
+            }
+        } )
+
+        return{
+            ...state,
+            itemsOnCart: updatedItemsOnCart3
+        }
+
+    
         case types.removeItemFromCart:
-        */
+         
+        let updatedItemsOnCart4 = state.itemsOnCart;
+
+        updatedItemsOnCart4.map( (itemOnCart) =>{
+            if(itemOnCart.key === action.key){
+                
+                let index = updatedItemsOnCart4.indexOf(itemOnCart);
+                updatedItemsOnCart4.splice(index, 1);
+            }
+        } )
+
+        return{
+            ...state,
+            itemsOnCart: updatedItemsOnCart4
+        }
+
 
         default:
             return{

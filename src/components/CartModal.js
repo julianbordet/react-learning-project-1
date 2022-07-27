@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react"
 import './CartModal.css'
 import { CartContext } from "./store/cart-context"
+import { types } from "./store/cartReducer"
 
 
 const CartModal = (props) => {
@@ -8,39 +9,61 @@ const CartModal = (props) => {
     const [state, dispatch] = useContext(CartContext);
     const [totalPrice, setTotalPrice] = useState(0);
 
-    useEffect( () =>{
+    useEffect(() => {
 
         let innerTotalPrice = 0;
 
-        state.itemsOnCart.map( (menuitem) => {
+        state.itemsOnCart.map((menuitem) => {
             innerTotalPrice += menuitem.price * menuitem.quantity;
         })
 
         setTotalPrice(innerTotalPrice);
-    }, [state.itemsOnCart] );
+    }, [state.itemsOnCart]);
 
-   
-    
-    
-    /*
-    const calculateTotalPrice = () =>{
+    const increaseItemQuantityHandler = (menuItem) => {
 
-        let innerTotalPrice = 0;
+        /*
+        console.log(menuItem);
+        */
+        let message = {
+            type: types.increaseItemQuantity,
+            key: menuItem.key,
+            name: menuItem.name,
+            quantity: menuItem.quantity,
+        }
 
-        state.itemsOnCart.map( (menuitem) => {
-            innerTotalPrice += menuitem.price * menuitem.quantity;
-        })
-
-        setTotalPrice(innerTotalPrice);
+        dispatch(message);
     }
-    */
-    
+
+    const decreaseItemQuantityHandler = (menuItem) => {
+
+        let message;
+
+        if(menuItem.quantity > 1){
+            message = {
+                type: types.decreaseItemQuantity,
+                key: menuItem.key,
+                name: menuItem.name,
+                quantity: menuItem.quantity,
+            }
+        } else {
+            message = {
+                type: types.removeItemFromCart,
+                key: menuItem.key,
+                name: menuItem.name,
+                quantity: menuItem.quantity,
+            }
+        }
+
+       dispatch(message);
+
+    }
 
 
-    const executeOrder = () =>{
+    const executeOrder = () => {
         console.log('Ordering...');
     }
- 
+
     return (
         <div>
             <div className='backdrop' onClick={props.closeModal}></div>
@@ -57,8 +80,8 @@ const CartModal = (props) => {
                             </div>
                         </div>
                         <div className='modal-column-two'>
-                            <button className='modal-quantity-button minus-button'>-</button>
-                            <button className='modal-quantity-button plus-button'>+</button>
+                            <button onClick={ () => { decreaseItemQuantityHandler(menuItem) }} className='modal-quantity-button minus-button'>-</button>
+                            <button onClick={() => { increaseItemQuantityHandler(menuItem) }} className='modal-quantity-button plus-button'>+</button>
                         </div>
                     </div>
                 ))}
