@@ -26,6 +26,10 @@ const CartModal = (props) => {
 
     const [state, dispatch] = useContext(CartContext);
 
+    const executeOrder = () =>{
+        console.log('Ordering...');
+    }
+
    
 
     return (
@@ -35,13 +39,29 @@ const CartModal = (props) => {
                 
                 {state.itemsOnCart.map((menuItem) => (
                     <div className='modal-item'>
-                        <span className='modal-item-name'>{menuItem.name}</span>
-                        <div className='modal-item-second-row'>
-                            <span>${menuItem.price}</span>
-                            <span>x {menuItem.quantity}</span>
+                        <div className='modal-column-one'>
+                            <span className='modal-item-name'>{menuItem.name}</span>
+                            <div className='modal-item-second-row'>
+                                <span className='modal-item-price'>${menuItem.price}</span>
+                                <span>x {menuItem.quantity}</span>
+                            </div>
+                        </div>
+                        <div className='modal-column-two'>
+                            <button className='modal-quantity-button plus-button'>-</button>
+                            <button className='modal-quantity-button plus-button'>+</button>
                         </div>
                     </div>
                 ))}
+
+                <div className='amount-row'>
+                    <span className='total-amount-label'>Total Amount:</span>
+                    <span className='total-amount-price'>$xxx</span>
+                </div>
+
+                <div className='close-order-buttons'>
+                    <button>Close</button>
+                    <button onClick={executeOrder}>Order</button>
+                </div>
 
             </div>
         </div>

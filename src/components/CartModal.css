@@ -11,12 +11,80 @@
 .modal{
     position:fixed;
     top: 30vh;
-    left: 10%;
+    left: 30%;
     width: 80%;
     z-index: 100;
     overflow: hidden;
+    border-radius: 15px;
+}
+
+.modal-item-name{
+    color: #303030;
+    font-size:2rem;
+    font-weight: bold;
+}
+
+.modal-item-price{
+    color: #844432;
+    font-size:1.2rem;
+    font-weight: bold;
+    margin-right: 150px;
 }
 
 .modal-item{
     background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding-left:50px;
+    padding-right:50px;
+    padding-top: 30px;
+    width:50%;
+
+}
+
+.modal-column-one{
+    display: flex;
+    flex-direction: column;
+    width:70%;
+}
+
+.modal-item-second-row{
+    display: flex;
+    justify-content: flex-start;
+    
+}
+
+.modal-column-two{
+    display: flex;
+    width:20%;
+   justify-content: space-between;
+}
+
+.amount-row{
+    display: flex;
+    background-color: white;
+    width:50%;
+    justify-content: space-between;
+    padding-left:50px;
+    padding-right:50px;
+    padding-top:50px;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.close-order-buttons{
+    display: flex;
+    justify-content: flex-end;
+    background-color: white;
+    width:50%;
+    padding-top:30px;
+    padding-bottom: 50px;
+    padding-right:50px;
+}
+
+.modal-quantity-button{
+    margin-top:20px;
+    width:60px;
+    height:30px;
+    
 }
